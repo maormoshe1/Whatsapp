@@ -1,0 +1,10 @@
+
+i:hover{
+    background-color: lightgray;
+}
+.row{
+    --bs-gutter-x: 0;
+}
+#settings{
+    float: right;
+}

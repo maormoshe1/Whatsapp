@@ -1,0 +1,12 @@
+.card{
+    background-color: lightcyan;
+    position: fixed;
+    bottom: 20%;
+    left: 40%;
+    padding: 1%;    
+}
+
+
+input{
+    border-radius: 5px;
+}

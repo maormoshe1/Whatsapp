@@ -1,0 +1,12 @@
+#sendMsg{ 
+    background-color: aquamarine;
+    border-radius: 50px;
+    max-width: 60vh;
+   
+}
+
+#reciveMsg{ 
+    border-radius: 50px;
+    max-width: 60vh;
+    float:right;
+}
