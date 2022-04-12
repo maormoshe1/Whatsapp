@@ -1,7 +1,6 @@
 import './App.css';
 import ChatPage from './chat/ChatPage';
 import Login from './login/Login';
-import Register from './register/Register';
 import {BrowserRouter as Router, Route, Switch} from "react-router-dom"
 import { useState } from 'react';
 
@@ -18,7 +17,6 @@ function App() {
     <Router>
       <Switch>
         <Route exact path="/login" component={() => <Login curUname = {curUname}/>} />
-        <Route exact path="/register" component= {Register} />
         <Route exact path="/chat_page" component={() => <ChatPage uname={uname} />} />
       </Switch>
     </Router>
