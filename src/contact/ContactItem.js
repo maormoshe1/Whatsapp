@@ -1,8 +1,10 @@
 import './ContactItem.css';
 
-function ContactItem({img,name,messages}){
+function ContactItem({img,name,messages,show_msg}){
+  
+
     return(
-        <div className="contact-chat">
+        <div onClick={() => {show_msg(name)}}className="contact-chat">
             <div className="d-flex align-items-center">
                 <div className="col-md-4">
                     <img src={img} className="img-fluid rounded-circle mr-1"></img>

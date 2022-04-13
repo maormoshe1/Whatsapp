@@ -1,19 +1,51 @@
 import './ChatItem.css';
 import MessageList from '../messages/MessageList'
+import messages from '../hard_coded/messages';
+import { useRef , useState} from 'react';
 
-import { useRef, useState } from 'react';
-
-function ChatItem({messages}){
+function ChatItem({ messages, setMessages }) {
+    let today = new Date();
     const msg = useRef(null);
-    const [messageList, setMessageList] = useState(messages)
+
+    // const [messageList, setMessageList] = useState(messages)
+
+    const getTime = function(){
+        let h = today.getHours();
+        let m = today.getMinutes();
+        if(h<12){
+            h = '0'+h;
+        }
+        if(m<10){
+            m = '0'+m;
+        }
+        return h + ":" + m
+    }
 
     const handleSend = (msg) => {
-            console.log(msg.current.value);
-            setMessageList(messages.push({text: msg.current.value ,time: '17:08',me: true}));
+        //console.log(msg.current.value);
+        
+        //console.log(messages);
+        //console.log(messageList);
+        messages.push({ text: msg.current.value, time: getTime()  , from: true })
+        setMessages(messages);
+        //setMessageList(messages.push({ text: msg.current.value, time: getTime()  , from: true }));
+        //last_msg = () => {};
+        //add_msg(messages);
+        // add_msg(messages);
+        //console.log(messages);
+        //console.log(messageList);
+        
+    }
+    console.log("chatitem")
+    console.log(messages)
 
-            // console.log(messages[3].text)
-           
-        } 
+    if (messages.length == 0) {
+        return (
+            <div>
+                hello
+            </div>
+        );
+    } 
 
     return(
         <div>
