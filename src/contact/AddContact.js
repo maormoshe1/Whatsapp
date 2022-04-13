@@ -1,15 +1,34 @@
 import { useRef } from "react";
+import messages from "../hard_coded/messages";
+import users from "../hard_coded/users";
 
-function AddContact({modal,show_modal,user,setContactList}){
+function AddContact({ modal, show_modal, user, setContactList }) {
     const new_contact = useRef(null)
-    const add_contact = function(){
-        user.contacts.push({user: new_contact.current.value , messagaes : [{text:'hi, shalev', time:'16:03', from: 'Shir'}]});
-        console.log(user.contacts)
-       setContactList(user.contacts);
-       show_modal(false);
+    const add_contact = function () {
+
+        var flagFound = false, flagExists = false;
+
+        for(let contact of user.contacts) {
+            if (contact.user == document.getElementById("new_username").value) {
+                flagExists = true;
+            }
+        }
+
+        for (let user of users) {
+            if (user.uname == document.getElementById("new_username").value) {
+                console.log(user.uname)
+                flagFound = true;
+            }
+        }
+
+        if(flagFound && !flagExists) {
+            user.contacts.push({user: document.getElementById("new_username").value, messages: [{text:'', time:'', from: 'Shir'}]})
+            setContactList(user.contacts);
+            show_modal(false);
+        }
 
     }
-    if(!modal){
+    if (!modal) {
         return null;
     }
     return (
@@ -18,16 +37,16 @@ function AddContact({modal,show_modal,user,setContactList}){
                 <div className="modal-content">
                     <div className="modal-header">
                         <h5 className="modal-title">Add new Contact</h5>
-                        <button onClick={() => {show_modal(false)}} type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        <button onClick={() => { show_modal(false) }} type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div className="modal-body">
                         <p>
-                            <input ref={new_contact} placeholder="contact's identifier"/>
+                            <input id="new_username" ref={new_contact} placeholder="contact's identifier" />
                         </p>
                     </div>
                     <div className="modal-footer">
-                        <button onClick={() => {show_modal(false)}} type="button" className="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                        <button onClick={() => {add_contact()}} type="button" className="btn btn-primary">Add</button>
+                        <button onClick={() => { show_modal(false) }} type="button" className="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        <button onClick={() => { add_contact() }} type="button" className="btn btn-primary">Add</button>
                     </div>
                 </div>
             </div>
