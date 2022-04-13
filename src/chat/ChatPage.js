@@ -24,7 +24,8 @@ function ChatPage({ uname }) {
 
     return (
         <div className="container">
-            <div className="row">
+            <img className='background' src="Images/registerBackground.png" />
+            <div className="row myCan">
                 <div className="col-4" style={{ overflow: "scroll", maxHeight: '100vh' }}>
                     <div id="settings">
                         <div className="d-flex align-items-center">
