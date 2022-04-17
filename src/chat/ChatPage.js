@@ -47,7 +47,7 @@ function ChatPage({ uname }) {
                 </div>
                 <div className="col-8" style={{ overflow: "scroll", maxHeight: '90vh' }}>
                     <AddContact modal={addContact} show_modal={setAddContact} user={user} setContactList={setContactList} />
-                    <ChatItem messages={messages} show_msg={show_msg} />
+                    <ChatItem messages={messages}  user={user} />
                 </div>
             </div>
         </div>

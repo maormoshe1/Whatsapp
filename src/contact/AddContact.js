@@ -22,7 +22,7 @@ function AddContact({ modal, show_modal, user, setContactList }) {
         }
 
         if(flagFound && !flagExists) {
-            user.contacts.push({user: document.getElementById("new_username").value, messages: [{text:'', time:'', from: 'Shir'}]})
+            user.contacts.push({user: document.getElementById("new_username").value, messages: [{content:'', time:'', from: 'Shir'}]})
             setContactList(user.contacts);
             show_modal(false);
         }

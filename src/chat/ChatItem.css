@@ -1,4 +1,4 @@
-#send, .typing{
+/* .typing{
     position: fixed;
     border-radius: 5px;
     width: 40%;
@@ -12,10 +12,32 @@
     width: 2%;
     bottom: 5%;
     left: 86%;
-}
-.background{
+} */
+
+.msg-controller {
     position: fixed;
-    width : 40%;
+    bottom: 10%;
+}
+#attatchment{
+    position: fixed;
+    left: 40%;
+}
+#toSendField{
+    position: fixed;
+    border-radius: 5px;
+    width: 40%;
+    left: 45%;
+}
+
+#send{
+    position: fixed;
+    width: 2%;
+    left: 86%;
+}
+#background{
+    position: fixed;
+    height: 100%;
+    width : 57%;
 }
 
 .message{

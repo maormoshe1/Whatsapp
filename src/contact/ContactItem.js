@@ -7,7 +7,7 @@ function ContactItem({ img, name, messages, show_msg }) {
 
     var lastMessage = "", lastMessageTime = "";
     if(messages.length != 0) {
-        lastMessage = messages[messages.length - 1].text;
+        lastMessage = messages[messages.length - 1].content;
         lastMessageTime = messages[messages.length - 1].time;
     }
 

@@ -1,8 +1,15 @@
-#msg{ 
+#text-msg{ 
     background-color: aquamarine;
     border-radius: 50px;
+    max-width: 60vh;  
+}
+
+#img-msg{ 
+    background-color: aquamarine;
+    border-radius: 30px;
+    padding: 2px;
     max-width: 60vh;
-   
+    max-width: 40vh;
 }
 
 #reciveMsg{ 
