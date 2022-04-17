@@ -17,7 +17,8 @@
   	color: black;
   	background: transparent;
 	border-radius: 0;
-	margin-left: 25%;
+	left: 50%;
+	transform: translate(50%, 200%);
 }
 
 .mainCanvas {
@@ -118,14 +119,14 @@
 	transition: 0.5s;
 	background-size: 200% auto;
 	color: white;            
-	margin-top: 5%;
-	margin-left: 25%;
 	width: 50%;
 	border-radius: 10px;
+	left: 50%;
+	transform: translate(-50%, 280%);
  }
 
  .btn-grad:hover {
-	background-position: right center; /* change the direction of the change here */
+	background-position: right center;
 	color: #fff;
 	text-decoration: none;
  }
@@ -145,20 +146,37 @@
  }
 
  .profilePic {
-	margin-left:37%;
-	width: 20%;
-	height: 20%;
+	height: 100%;
+	width: 100%;
  }
 
- .addPicture {
-	outline: 0;
-	border: none;
-	padding: 15px;
+#image-input {
+	display: none;
+}
+
+.profilePicDiv {
+	position: absolute;
+	width: 20%;
+	height: 20%;
+	top: 25%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	border-radius: 50%;
+	overflow: hidden;
+	border: 1px solid grey;
+}
+
+#uploadPicBtn {
+	height: 25%;
+	width: 100%;
+	position: absolute;
+	bottom: 0;
+	transform: translateX(-50%);
+	left: 50%;
 	text-align: center;
-	border-radius: 20px;
-	margin: 0;
-	margin-left:-3%;
-	/* background-image: url(addPicture.png); */
-	background-color: #cccc;
-	background-size: cover;
+	background: rgba(191, 66, 236, 0.7);
+	color: white;
+	font-size: small;
+	cursor: pointer;
+	/* display: none; */
 }
