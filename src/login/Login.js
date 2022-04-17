@@ -88,7 +88,7 @@ function Login({ curUname }) {
       return;
     }
 
-    users.push({uname : usernameR.current.value , password: passwordR.current.value, img : 'Images/anonymous.jpeg' , contacts: []})
+    users.push({uname : usernameR.current.value , password: passwordR.current.value, img : 'Images/anonymous.png' , contacts: []})
     curUname(usernameR.current.value);
     history.push("/chat_page")
     
