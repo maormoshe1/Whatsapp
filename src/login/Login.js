@@ -7,6 +7,10 @@ import users from '../hard_coded/users'
 function Login({ curUname }) {
   const username = useRef(null);
   const password = useRef(null);
+  const usernameR = useRef(null);
+  const passwordR = useRef(null);
+  const password2R = useRef(null);
+  const displayName = useRef(null);
   let history = useHistory();
 
 
@@ -60,12 +64,34 @@ function Login({ curUname }) {
         curUname(uname.current.value);
         history.push("/chat_page")
 
-        //alert("Logged in successfully!")
         return;
       }
-      //console.log(messages[messages.length-1].text)
     }
     alert("Incorrect username and / or password ")
+  }
+
+  const handleRegister = (usernameR, passwordR, password2R, displayName) => {
+    for (let user of users) {
+      if (user.uname == usernameR.current.value) {
+        alert("This username is taken, try another one:)")
+        document.getElementById("usernameR").value = "";
+        document.getElementById("passwordR").value = "";
+        document.getElementById("password2R").value = "";
+        return;
+      }
+
+    }
+    if (passwordR.current.value != password2R.current.value) {
+      alert("The passwords do not match:(")
+      document.getElementById("passwordR").value = "";
+      document.getElementById("password2R").value = "";
+      return;
+    }
+
+    users.push({uname : usernameR.current.value , password: passwordR.current.value, img : 'Images/anonymous.jpeg' , contacts: []})
+    curUname(usernameR.current.value);
+    history.push("/chat_page")
+    
   }
 
   return (
@@ -97,15 +123,15 @@ function Login({ curUname }) {
           <img className='profilePic' src="Images/profileLogo.png" />
           <button className='addPicture' />
           <br /><br />
-          <input className='input' type="username" placeholder='Username' required />
+          <input ref={usernameR} className='input' id="usernameR" placeholder='Username' required />
           <br /><br />
-          <input className='input' type="password" placeholder='Password' required />
+          <input ref={passwordR} className='input' id="passwordR" type="password" placeholder='Password' required />
           <br /><br />
-          <input className='input' type="password" placeholder='Re-enter password' required />
+          <input ref={password2R} className='input' id="password2R" type="password" placeholder='Re-enter password' required />
           <br /><br />
-          <input className='input' type="displayName" placeholder='Display name' required />
+          <input ref={displayName} className='input' id="displayName" placeholder='Display name' required />
 
-          <button className='btn-grad'>Sign Up</button>
+          <button onClick={() => { handleRegister(usernameR, passwordR, password2R, displayName) }} className='btn-grad'>Sign Up</button>
         </div>
         <div id='ChangeToLoginCan' className='ChangeToLoginCanvas'>
           <h1 className='textSwitch'>Welcome Back!</h1>
