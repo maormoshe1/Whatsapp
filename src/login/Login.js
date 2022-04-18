@@ -131,7 +131,7 @@ function Login({ curUname }) {
 						<input type="file" id="image-input" accept="image/*" />
 						<label for="image-input" id="uploadPicBtn">Upload picture</label>
 					</div>
-
+					
 					<br /><br />
 					<input ref={usernameR} className='input' id="usernameR" placeholder='Username' required />
 					<br /><br />
