@@ -5,7 +5,6 @@ function AddImg({ modal, show_modal, type, handleSend }) {
     const reader = new FileReader();
 
     const add_media = function () {
-
         reader.addEventListener("load", () => {handleSend(type, reader.result)});
         reader.readAsDataURL(new_img.current.files[0])
 
@@ -23,7 +22,7 @@ function AddImg({ modal, show_modal, type, handleSend }) {
         
             <div className="modal-footer">
                 <input ref={new_img} type="file" id="real-file"></input>
-                <button  onClick={() => { add_media() }} type="button" className="btn btn-primary">Add</button>
+                <button  onClick={() => { add_media() }} type="button" className="btn btn-primary">Send</button>
             </div>
         </div>
     </div>

@@ -3,14 +3,17 @@ import MessageList from '../messages/MessageList'
 import messages from '../hard_coded/messages';
 import { useRef, useState } from 'react';
 import AddMedia from '../messages/AddMedia';
+import RecordAudio from '../messages/RecordAudio';
+import CurrentSession from './CurrentSession';
 
-function ChatItem({ messages, user }) {
+function ChatItem({ messages, curImgContact, curNameContact, user }) {
     let today = new Date();
     const msg = useRef(null);
 
     const [messageList, setMessageList] = useState(messages);
     const [addMedia, setAddMedia] = useState(false);
     const [type, setType] = useState('');
+    const [recordAudio, setRecordAudio] = useState(false)
 
     const getTime = function () {
         let h = today.getHours();
@@ -26,7 +29,6 @@ function ChatItem({ messages, user }) {
 
     const handleSend = (type, content) => {
         setMessageList(messages.push({type: type, content: content , time: getTime(), from: user.uname }));
-      
         console.log(messages[messages.length-1])
         document.getElementById("toSendField").value = "";
     }
@@ -49,10 +51,13 @@ function ChatItem({ messages, user }) {
             <img id='background' src="Images/background.jpg" ></img>
 
             <div className='message'>
+                <CurrentSession uname={curNameContact} img={curImgContact}/>
+                <br/>
                 <MessageList messages={messages} />
             </div>
             <div className='add_media'>
                 <AddMedia modal={addMedia} show_modal={setAddMedia} type={type} handleSend={handleSend} />
+                <RecordAudio modal={recordAudio} show_modal={setRecordAudio} handleSend={handleSend} />
             </div>
 
             <div className='msg-controller'>
@@ -64,7 +69,7 @@ function ChatItem({ messages, user }) {
                     <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
                         <li><a  onClick={() => { add_media("img") }} class="dropdown-item" href="#"><i class="bi bi-card-image"></i></a></li>
                         <li><a onClick={() => { add_media("video") }} class="dropdown-item" href="#"><i class="bi bi-camera-reels"></i></a></li>
-                        <li><a class="dropdown-item" href="#"><i class="bi bi-mic"></i></a></li>
+                        <li><a onClick={() => { setRecordAudio(true) }} class="dropdown-item" href="#"><i class="bi bi-mic"></i></a></li>
                     </ul>
                 </div>
                 <i id="send" className="bi bi-send" onClick={() => { handleSend("text", msg.current.value) }}></i>

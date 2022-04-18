@@ -28,12 +28,24 @@ function Message({msg}){
       return (
         <div className="grid">
           <p id="img-msg" className="g-col-6 ">
-              <video src={msg.content} autoPlay controls/>
+              <video src={msg.content}  controls/>
               <small id="img-msg-time" className="text-muted">{msg.time}</small>
             </p>
         </div>
       );
   }
+
+  if(msg.type == "audio"){
+    console.log(msg.content)
+    return (
+      <div className="grid">
+        <p id="img-msg" className="g-col-6 ">
+            <audio src={msg.content}  controls/>
+            <small id="img-msg-time" className="text-muted">{msg.time}</small>
+          </p>
+      </div>
+    );
+}
 
   return (
     <div className="grid">

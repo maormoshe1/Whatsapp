@@ -9,7 +9,7 @@ import AddContact from '../contact/AddContact';
 
 function ChatPage({ uname }) {
     const user = users.find((user) => {
-        return user.uname == 'Shir'
+        return user.uname == uname
     })
 
     const [contactList, setContactList] = useState(() => { return user.contacts })
@@ -18,8 +18,14 @@ function ChatPage({ uname }) {
 
     const [addContact, setAddContact] = useState(false)
 
-    const show_msg = function (messagesToShow) {
-        setMessages(messagesToShow)
+    const [curNameContact, setCurNameContact] = useState('')
+
+    const [curImgContact, setCurImgContact] = useState('')
+
+    const show_msg = function (messages, name, img) {
+        setCurImgContact(img)
+        setCurNameContact(name)
+        setMessages(messages)
     }
 
     return (
@@ -47,7 +53,7 @@ function ChatPage({ uname }) {
                 </div>
                 <div className="col-8" style={{ overflow: "scroll", maxHeight: '90vh' }}>
                     <AddContact modal={addContact} show_modal={setAddContact} user={user} setContactList={setContactList} />
-                    <ChatItem messages={messages}  user={user} />
+                    <ChatItem messages={messages} curImgContact={curImgContact} curNameContact={curNameContact}  user={user} />
                 </div>
             </div>
         </div>
