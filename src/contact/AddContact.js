@@ -27,7 +27,22 @@ function AddContact({ modal, show_modal, user, setContactList }) {
             //document.getElementById("AddBtn").setAttribute("data-bs-dismiss","modal");
         }
 
+        if(!flagFound) {
+            document.getElementById('alert').style.visibility = "collapse";
+			document.getElementById('alert').innerHTML = "There is not user with this username:(";
+			document.getElementById('alert').style.visibility = "visible";
+        }
+
+        document.getElementById('alert').style.visibility = "collapse";
+		document.getElementById('alert').innerHTML = "This user is already in your chats ;)";
+		document.getElementById('alert').style.visibility = "visible";
+
     }
+
+    const closeAlert = function() {
+		document.getElementById('alert').style.visibility = "collapse";
+	}
+
     if (!modal) {
         return null;
     }
@@ -43,11 +58,13 @@ function AddContact({ modal, show_modal, user, setContactList }) {
                         </div>
                         <div className="modal-body">
                             <p>
-                                <input id="new_username" ref={new_contact} placeholder="contact's identifier" />
+                                <input onClick={() => { closeAlert() }} id="new_username" ref={new_contact} placeholder="Enter exact contact's identifier" />
                             </p>
                         </div>
                         <div className="modal-footer">
                             <button onClick={() => { add_contact() }} type="button" id="AddBtn" className="btn btn-primary" data-bs-dismiss="modal">Add</button>
+                            <div className="alert alert-warning" role="alert" id='alert'/>
+
                         </div>
                     </div>
                 </div>

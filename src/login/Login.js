@@ -2,6 +2,7 @@ import { useRef, useState } from 'react';
 import './Login.css';
 import { useHistory } from "react-router-dom"
 import users from '../hard_coded/users'
+import { wait } from '@testing-library/user-event/dist/utils';
 
 
 function Login({ curUname }) {
@@ -18,6 +19,7 @@ function Login({ curUname }) {
 	const [profile, setProfie] = useState("Images/profileLogo.png")
 
 	const handleSwitchToLogin = () => {
+		closeAlert();
 		var divRegisterCanvas = document.getElementById("registerCan");
 		document.getElementById("LoginCan").style.left = "0%";
 		var intervalID = window.setInterval(myCallback, 10);
@@ -40,6 +42,7 @@ function Login({ curUname }) {
 	}
 
 	const handleSwitchToRegister = () => {
+		closeAlert();
 		var divRegisterCanvas = document.getElementById("LoginCan");
 		document.getElementById("registerCan").style.left = "40%";
 		var intervalID = window.setInterval(myCallback, 10);
@@ -70,7 +73,10 @@ function Login({ curUname }) {
 				return;
 			}
 		}
-		alert("Incorrect username and / or password ")
+
+		document.getElementById('alert').style.visibility = "collapse";
+		document.getElementById('alert').innerHTML = "Incorrect username and / or password";
+		document.getElementById('alert').style.visibility = "visible";
 	}
 
 	const add_profile = function () {
@@ -80,7 +86,10 @@ function Login({ curUname }) {
 	const handleRegister = (usernameR, passwordR, password2R, displayName) => {
 		for (let user of users) {
 			if (user.uname == usernameR.current.value) {
-				alert("This username is taken, try another one:)")
+				document.getElementById('alert').style.visibility = "collapse";
+				document.getElementById('alert').innerHTML = "This username is taken, try another one:)";
+				document.getElementById('alert').style.visibility = "visible";
+
 				document.getElementById("usernameR").value = "";
 				document.getElementById("passwordR").value = "";
 				document.getElementById("password2R").value = "";
@@ -89,14 +98,19 @@ function Login({ curUname }) {
 
 		}
 		if (passwordR.current.value != password2R.current.value) {
-			alert("The passwords do not match:(")
+			document.getElementById('alert').style.visibility = "collapse";
+			document.getElementById('alert').innerHTML = "The passwords do not match:(";
+			document.getElementById('alert').style.visibility = "visible";
+
 			document.getElementById("passwordR").value = "";
 			document.getElementById("password2R").value = "";
 			return;
 		}
 
 		if (usernameR.current.value == "" || passwordR.current.value == "" || displayName.current.value == "") {
-			alert("Something is missing")
+			document.getElementById('alert').style.visibility = "collapse";
+			document.getElementById('alert').innerHTML = "Something is missing";
+			document.getElementById('alert').style.visibility = "visible";	
 			return
 		}
 
@@ -107,6 +121,9 @@ function Login({ curUname }) {
 
 	}
 
+	const closeAlert = function() {
+		document.getElementById('alert').style.visibility = "collapse";
+	}
 
 
 	return (
@@ -117,12 +134,15 @@ function Login({ curUname }) {
 				<div id='LoginCan' className='LoginCanvas'>
 					<h1 className='text2'>Sign In</h1>
 					<br />
-					<input ref={username} className='input' type="uname" placeholder='Username' required />
+					<input onClick={() => { closeAlert() }} ref={username} className='input' type="uname" placeholder='Username' required />
 					<br /><br />
-					<input ref={password} className='input' type="password" placeholder='Password' required />
+					<input onClick={() => { closeAlert() }} ref={password} className='input' type="password" placeholder='Password' required />
 
-					<button onClick={() => { handleLogin(username, password) }} className='btn-grad'>Login</button>
+					<button  onClick={() => { handleLogin(username, password) }} className='btn-grad'>Login</button>
+
 				</div>
+
+
 				<div id='ChangeToRegisterCan' className='ChangeToRegisterCanvas'>
 					<h1 className='textSwitch'>New Here?</h1>
 					<br />
@@ -143,13 +163,13 @@ function Login({ curUname }) {
 					</div>
 					<button onClick={() => { add_profile() }} type="button" className="btnUpload">Upload</button>
 					<br /><br />
-					<input ref={usernameR} className='input' id="usernameR" placeholder='Username' required />
+					<input onClick={() => { closeAlert() }} ref={usernameR} className='input' id="usernameR" placeholder='Username' required />
 					<br /><br />
-					<input ref={passwordR} className='input' id="passwordR" type="password" placeholder='Password' required />
+					<input onClick={() => { closeAlert() }} ref={passwordR} className='input' id="passwordR" type="password" placeholder='Password' required />
 					<br /><br />
-					<input ref={password2R} className='input' id="password2R" type="password" placeholder='Re-enter password' required />
+					<input onClick={() => { closeAlert() }} ref={password2R} className='input' id="password2R" type="password" placeholder='Re-enter password' required />
 					<br /><br />
-					<input ref={displayName} className='input' id="displayName" placeholder='Display name' required />
+					<input onClick={() => { closeAlert() }} ref={displayName} className='input' id="displayName" placeholder='Display name' required />
 
 					<button onClick={() => { handleRegister(usernameR, passwordR, password2R, displayName) }} className='btn-grad'>Sign Up</button>
 				</div>
@@ -160,6 +180,7 @@ function Login({ curUname }) {
 					<br />
 					<button id='hey' onClick={() => { handleSwitchToLogin() }} className='loginBtn'>Sign In</button>
 				</div>
+				<div className="alert alert-warning" role="alert" id='alert'/>
 
 			</div>
 		</div>
