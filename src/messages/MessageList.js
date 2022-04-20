@@ -1,17 +1,18 @@
 import Message from "./Message";
-function MessageList({ messages }) {
+import './Message.css'
+function MessageList({ messages, userName }) {
 
     var messageList = [];
     if(messages.length != 0) {
         
         messageList = messages.map((message, key) => {
-            return <Message msg={message} key={key} />
+            return <Message msg={message} userName={userName} key={key} />
         });
     
     }
 
     return (
-        <div className='message'>
+        <div>
             {messageList}
         </div>
     )

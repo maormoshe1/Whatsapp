@@ -1,22 +1,6 @@
-/* .typing{
-    position: fixed;
-    border-radius: 5px;
-    width: 40%;
-    bottom: 5%;
-    left: 45%;
-}
-
-#send{
-    position: fixed;
-
-    width: 2%;
-    bottom: 5%;
-    left: 86%;
-} */
-
 .msg-controller {
-    position: fixed;
-    bottom: 10%;
+    position: absolute;
+    bottom: 7%;
 }
 #attatchment{
     position: fixed;
@@ -35,12 +19,34 @@
     left: 86%;
 }
 #background{
+    position: absolute;
+    height: 110%;
+    width : 100%;
+}
+
+#background2{
     position: fixed;
     height: 100%;
-    width : 57%;
+    width : 56.5%;
 }
 
 .message{
-    position: relative;
+    position: absolute;
     top: 5%;
+    height: 80%;
+    width: 100%;
 }
+
+.Chats {
+    transform: translate(-50%, -50%);
+    background-color: white;
+    height: 100%;
+    z-index: -1;
+}
+
+.theChat{
+    position: fixed;
+    width: 56.2%;
+    height: 85%;
+}
+

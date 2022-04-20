@@ -11,11 +11,11 @@ function Login({ curUname }) {
 	const passwordR = useRef(null);
 	const password2R = useRef(null);
 	const displayName = useRef(null);
-  const profile_img = useRef(null)
-  const reader = new FileReader();
+	const profile_img = useRef(null)
+	const reader = new FileReader();
 	let history = useHistory();
 
-  const [profile, setProfie] = useState("Images/profileLogo.png")
+	const [profile, setProfie] = useState("Images/profileLogo.png")
 
 	const handleSwitchToLogin = () => {
 		var divRegisterCanvas = document.getElementById("registerCan");
@@ -73,10 +73,10 @@ function Login({ curUname }) {
 		alert("Incorrect username and / or password ")
 	}
 
-  const add_profile = function () {
-    reader.addEventListener("load", () => {setProfie(reader.result)});
-    reader.readAsDataURL(profile_img.current.files[0])
-}
+	const add_profile = function () {
+		reader.addEventListener("load", () => { setProfie(reader.result) });
+		reader.readAsDataURL(profile_img.current.files[0])
+	}
 	const handleRegister = (usernameR, passwordR, password2R, displayName) => {
 		for (let user of users) {
 			if (user.uname == usernameR.current.value) {
@@ -97,11 +97,11 @@ function Login({ curUname }) {
 
 		if (usernameR.current.value == "" || passwordR.current.value == "" || displayName.current.value == "") {
 			alert("Something is missing")
-      return
+			return
 		}
 
-		users.push({ uname: usernameR.current.value, password: passwordR.current.value, img: profile , contacts: [] })
-    console.log(profile)
+		users.push({ uname: usernameR.current.value, dname: displayName.current.value, password: passwordR.current.value, img: profile, contacts: [] })
+		console.log(profile)
 		curUname(usernameR.current.value);
 		history.push("/chat_page")
 
@@ -138,10 +138,10 @@ function Login({ curUname }) {
 
 					<div className='profilePicDiv'>
 						<img className='profilePic' id="defaultPhoto" src={profile} />
-						<input  ref={profile_img} type="file" id="image-input" accept="image/*" />
-						<label   for="image-input" id="uploadPicBtn">Choose picture</label>
+						<input ref={profile_img} type="file" id="image-input" accept="image/*" />
+						<label for="image-input" id="uploadPicBtn">Choose picture</label>
 					</div>
-          <button  onClick={() => { add_profile() }} type="button" className="btn btn-primary">upload</button>
+					<button onClick={() => { add_profile() }} type="button" className="btnUpload">Upload</button>
 					<br /><br />
 					<input ref={usernameR} className='input' id="usernameR" placeholder='Username' required />
 					<br /><br />

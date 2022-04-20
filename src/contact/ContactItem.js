@@ -7,10 +7,10 @@ import './ContactItem.css';
 function ContactItem({ img, name, messages, show_msg }) {
 
     return (
-        <div onClick={() => { show_msg(messages, name, img) }} className="contact-chat">
+        <div onClick={() => { show_msg(messages, name, img) }} className="row contact-chat">
             <div className="d-flex align-items-center">
                 <div className="col-md-4">
-                    <img src={img} className="img-fluid rounded-circle mr-1"></img>
+                    <img src={img} id='chatPic'></img>
                 </div>
                 <div className="col-md-8">
                     <div className="card-body">

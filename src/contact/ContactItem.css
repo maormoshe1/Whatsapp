@@ -1,3 +1,6 @@
+.contact-chat {
+    height: 19.8%;
+}
 .contact-chat:hover{
     background-color: lightgray;
 }
@@ -6,4 +9,13 @@ img{
 }
 .send-time{
     float: right;
+}
+
+#chatPic {
+    width: 70px;
+    border-radius: 50%;
+}
+
+.chats {
+    height: 620px;
 }

@@ -1,55 +1,106 @@
 
 import './Message.css';
 
-function Message({msg}){
-  if(msg.type == "text"){
-    return (
-      <div className="grid">
-        <p id="text-msg" className="g-col-6 ">
+function Message({ msg, userName }) {
+
+  if (msg.type == "text") {
+    if (msg.from == userName) {
+      return (
+        <div className="grid">
+          <p id="text-msg" >
             <text className='msg-text'> {msg.content} </text>
             <small className="text-muted">{msg.time}</small>
           </p>
-      </div>
-    );
+        </div>
+      );
+    }
+    else {
+      return (
+        <div>
+          <p id="text-msg" >
+            <text className='reciveMsg'> {msg.content} </text>
+            <small>{msg.time}</small>
+          </p>
+        </div>
+      );
+
+    }
+
   }
-  if(msg.type == "img"){
-    console.log(msg.content)
-    return (
-      <div className="grid">
-        <p id="img-msg" className="g-col-6 ">
-            <img src={msg.content} className='msg-text'/>
+  if (msg.type == "img") {
+    if (msg.from == userName) {
+      return (
+        <div className="grid">
+          <p id="img-msg">
+            <img src={msg.content} className='msg-text' id='media' controls />
             <small id="img-msg-time" className="text-muted">{msg.time}</small>
           </p>
-      </div>
-    );
+        </div>
+      );
+    }
+    else {
+      return (
+        <div className="grid">
+          <p id="img-msg">
+            <img src={msg.content} className='reciveMsg' id='media' />
+            <small id="img-msg-time" className="text-muted">{msg.time}</small>
+          </p>
+        </div>
+      );
+    }
+
   }
-    if(msg.type == "video"){
-      console.log(msg.content)
+  if (msg.type == "video") {
+    if (msg.from == userName) {
       return (
         <div className="grid">
           <p id="img-msg" className="g-col-6 ">
-              <video src={msg.content}  controls/>
-              <small id="img-msg-time" className="text-muted">{msg.time}</small>
-            </p>
-        </div>
-      );
-  }
-
-  if(msg.type == "audio"){
-    console.log(msg.content)
-    return (
-      <div className="grid">
-        <p id="img-msg" className="g-col-6 ">
-            <audio src={msg.content}  controls/>
+            <video src={msg.content} controls id='media' />
             <small id="img-msg-time" className="text-muted">{msg.time}</small>
           </p>
-      </div>
-    );
-}
+        </div>
+      );
+    }
+    else {
+      return (
+        <div className="grid">
+          <p id="img-msg" className="g-col-6 ">
+            <video src={msg.content} className='reciveMsg' id='media' controls />
+            <small id="img-msg-time" className="text-muted">{msg.time}</small>
+          </p>
+        </div>
+      );
+    }
+
+  }
+
+  if (msg.type == "audio") {
+    if (msg.from == userName) {
+      return (
+        <div className="grid">
+          <p id="img-msg" className="g-col-6 ">
+            <audio src={msg.content} controls />
+            <small id="img-msg-time" className="text-muted">{msg.time}</small>
+          </p>
+        </div>
+      );
+    }
+    else {
+      return (
+        <div className="grid">
+          <p id="img-msg" className="g-col-6 ">
+            <audio src={msg.content} className='reciveMsg' controls />
+            <small id="img-msg-time" className="text-muted">{msg.time}</small>
+          </p>
+        </div>
+      );
+    }
+
+  }
 
   return (
     <div className="grid">
-    
+
     </div>
   );
 }

@@ -180,3 +180,15 @@
 	cursor: pointer;
 	/* display: none; */
 }
+
+.btnUpload {
+	background-image: linear-gradient(to right, #b977ca 0%, #cc6a8a  51%, #c888d8  100%);
+	text-align: center;
+	font-size: small;
+	background-size: 200% auto;
+	color: white;            
+	width: 10%;
+	border-radius: 10px;
+	left: 70%;
+	transform: translate(550%, 350%);
+}

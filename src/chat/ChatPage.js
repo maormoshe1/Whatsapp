@@ -9,7 +9,7 @@ import AddContact from '../contact/AddContact';
 
 function ChatPage({ uname }) {
     const user = users.find((user) => {
-        return user.uname == uname
+        return user.uname == "Shir"
     })
 
     const [contactList, setContactList] = useState(() => { return user.contacts })
@@ -28,31 +28,34 @@ function ChatPage({ uname }) {
         setMessages(messages)
     }
 
+
     return (
         <div className="container">
             <img className='background' src="Images/registerBackground.png" />
+
             <div className="row myCan">
-                <div className="col-4" style={{ overflow: "scroll", maxHeight: '100vh' }}>
+                <div className="col-4" >
                     <div id="settings">
                         <div className="d-flex align-items-center">
                             <div className="col-md-4">
-                                <img id="profile" src={user.img} className="img-fluid rounded-circle mr-1"></img>
+                                <img id="profile" src={user.img}></img>
                             </div>
                             <div className="col-md-8">
                                 <div className="card-body">
-                                    <i onClick={() => { setAddContact(true) }} id="add_contact" className="bi bi-person-plus-fill"></i>
-                                    <h3 className="contact-name">{user.uname}</h3>
+                                    <i onClick={() => { setAddContact(true) }} id="add_contact" type="button" className="bi bi-person-plus-fill" data-bs-toggle="modal" data-bs-target="#exampleModal"/>
+
+                                    <h3 className="contact-name">{user.dname}</h3>
                                 </div>
                             </div>
                         </div>
                     </div>
-
                     <div>
                         <ContactList id="Contacts" contacts={contactList} show_msg={show_msg} />
                     </div>
                 </div>
-                <div className="col-8" style={{ overflow: "scroll", maxHeight: '90vh' }}>
+                <div className="col-8">
                     <AddContact modal={addContact} show_modal={setAddContact} user={user} setContactList={setContactList} />
+
                     <ChatItem messages={messages} curImgContact={curImgContact} curNameContact={curNameContact}  user={user} />
                 </div>
             </div>
