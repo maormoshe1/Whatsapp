@@ -65,7 +65,6 @@ function RecordAudio({ modal, show_modal, handleSend }) {
   return (
     <div className="modal-content">
       <div className="modal-header">
-        {/* <label id='titleRecording' className="recordingMessage"> Recording... </label> */}
         <img src="Images/recording.jpg" id='titleRecording' className="recordingMessage"/>
 
         <button onClick={() => { show_modal(false) }} type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>

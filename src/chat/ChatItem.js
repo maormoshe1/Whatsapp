@@ -78,7 +78,7 @@ function ChatItem({ messages, curImgContact, curNameContact, user }) {
                             <li><a onClick={() => { setRecordAudio(true) }} class="dropdown-item" href="#"><i class="bi bi-mic"></i></a></li>
                         </ul>
                     </div>
-                    <i id="send" className="bi bi-send" onClick={() => { handleSend("text", msg.current.value) }}></i>
+                    <i id="send" className="bi-send" onClick={() => { handleSend("text", msg.current.value) }}/>
                     <input id="toSendField" ref={msg} placeholder='type here...'></input>
                 </div>
             </div>

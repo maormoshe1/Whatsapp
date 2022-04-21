@@ -8,6 +8,9 @@ function AddContact({ modal, show_modal, user, setContactList }) {
 
         var flagFound = false, flagExists = false;
 
+        document.getElementById('alertSuccess').style.visibility = "collapse";
+        document.getElementById('alert').style.visibility = "collapse";
+
         for (let contact of user.contacts) {
             if (contact.user == document.getElementById("new_username").value) {
                 flagExists = true;
@@ -23,19 +26,21 @@ function AddContact({ modal, show_modal, user, setContactList }) {
         if (flagFound && !flagExists) {
             user.contacts.unshift({ user: document.getElementById("new_username").value, dname: document.getElementById("new_username").value, messages: [] })
             setContactList(user.contacts);
-            show_modal(false);
-            //document.getElementById("AddBtn").setAttribute("data-bs-dismiss","modal");
+			document.getElementById('alertSuccess').innerHTML = "Contact added:) Plz close the tab!";
+			document.getElementById('alertSuccess').style.visibility = "visible";
+            return;
         }
 
         if(!flagFound) {
-            document.getElementById('alert').style.visibility = "collapse";
-			document.getElementById('alert').innerHTML = "There is not user with this username:(";
+			document.getElementById('alert').innerHTML = "There is no user with this username:(";
 			document.getElementById('alert').style.visibility = "visible";
+
+            return;
         }
 
-        document.getElementById('alert').style.visibility = "collapse";
 		document.getElementById('alert').innerHTML = "This user is already in your chats ;)";
 		document.getElementById('alert').style.visibility = "visible";
+        return;
 
     }
 
@@ -62,8 +67,9 @@ function AddContact({ modal, show_modal, user, setContactList }) {
                             </p>
                         </div>
                         <div className="modal-footer">
-                            <button onClick={() => { add_contact() }} type="button" id="AddBtn" className="btn btn-primary" data-bs-dismiss="modal">Add</button>
+                            <button onClick={() => { add_contact() }} type="button" id="AddBtn" className="btn btn-primary" >Add</button>
                             <div className="alert alert-warning" role="alert" id='alert'/>
+                            <div className="alert alert-success" role="alert" id='alertSuccess'/>
 
                         </div>
                     </div>
