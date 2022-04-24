@@ -5,7 +5,7 @@ import users from '../hard_coded/users'
 import { wait } from '@testing-library/user-event/dist/utils';
 
 
-function Login({ curUname }) {
+function Login() {
 	const username = useRef(null);
 	const password = useRef(null);
 	const usernameR = useRef(null);
@@ -67,7 +67,7 @@ function Login({ curUname }) {
 	const handleLogin = (uname, password) => {
 		for (let user of users) {
 			if (user.uname == uname.current.value && user.password == password.current.value) {
-				curUname(uname.current.value);
+				localStorage.setItem('userName',uname.current.value)
 				history.push("/chat_page")
 
 				return;
@@ -116,7 +116,7 @@ function Login({ curUname }) {
 
 		users.push({ uname: usernameR.current.value, dname: displayName.current.value, password: passwordR.current.value, img: profile, contacts: [] })
 		console.log(profile)
-		curUname(usernameR.current.value);
+		localStorage.setItem('userName',usernameR.current.value)
 		history.push("/chat_page")
 
 	}

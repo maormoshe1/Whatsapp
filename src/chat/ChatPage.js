@@ -9,9 +9,10 @@ import AddContact from '../contact/AddContact';
 
 function ChatPage({ uname }) {
     const user = users.find((user) => {
-        return user.uname == "Shir"
+        return user.uname == localStorage.getItem("userName")
     })
-
+    
+    console.log(localStorage.getItem('userName'))
     const [contactList, setContactList] = useState(() => { return user.contacts })
 
     const [messages, setMessages] = useState(() => { return [] })

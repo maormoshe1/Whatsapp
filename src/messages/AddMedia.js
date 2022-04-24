@@ -1,7 +1,7 @@
 import { useRef } from "react";
 import "./Message.css"
 
-function AddImg({ modal, show_modal, type, handleSend }) {
+function AddMedia({ modal, show_modal, type, handleSend }) {
 
     const new_img = useRef(null)
     const reader = new FileReader();
@@ -31,4 +31,4 @@ function AddImg({ modal, show_modal, type, handleSend }) {
     )
 }
 
-export default AddImg;
+export default AddMedia;

@@ -25,7 +25,7 @@ function AddContact({user,refreshNewContact, setContactList }) {
         if (flagFound && !flagExists) {
             user.contacts.unshift({ user: document.getElementById("new_username").value, dname: document.getElementById("new_username").value, messages: [] })
             setContactList(user.contacts);
-			document.getElementById('alertSuccess').innerHTML = "Contact added:) Plz close the tab!";
+			document.getElementById('alertSuccess').innerHTML = "Contact added:)";
 			document.getElementById('alertSuccess').style.visibility = "visible";
             refreshNewContact(user.contacts[0])
             return;

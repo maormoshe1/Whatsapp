@@ -7,18 +7,12 @@ import AddContact from './contact/AddContact';
 
 
 function App() { 
-  //const username = ''
-  const [uname,setUname] = useState('')
-
-  const curUname = function(username){
-     setUname(username)
-  }
-
   return (
     <Router>
       <Switch>
-        <Route exact path="/login" component={() => <Login curUname = {curUname}/>} />
-        <Route exact path="/chat_page" component={() => <ChatPage uname={uname} />} />
+        <Route exact path="/" component={() => <Login/>} />
+        <Route exact path="/login" component={() => <Login/>} />
+        <Route exact path="/chat_page" component={() => <ChatPage />} />
         <Route exact path="/add" component={AddContact} />
       </Switch>
     </Router>
