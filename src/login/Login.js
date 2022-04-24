@@ -20,6 +20,8 @@ function Login() {
 
 	const handleSwitchToLogin = () => {
 		closeAlert();
+		document.getElementById("registerCan").style.visibility = "collapse";
+
 		var divRegisterCanvas = document.getElementById("registerCan");
 		document.getElementById("LoginCan").style.left = "0%";
 		var intervalID = window.setInterval(myCallback, 10);
@@ -105,6 +107,14 @@ function Login() {
 			document.getElementById("passwordR").value = "";
 			document.getElementById("password2R").value = "";
 			return;
+		}
+
+		var passw = /(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{3,}/;
+		if(!passwordR.current.value.match(passw)) {
+			document.getElementById('alert').style.visibility = "collapse";
+			document.getElementById('alert').innerHTML = "Password need to contain at least one numeric digit, one uppercase and one lowercase letter";
+			document.getElementById('alert').style.visibility = "visible";	
+			return
 		}
 
 		if (usernameR.current.value == "" || passwordR.current.value == "" || displayName.current.value == "") {
