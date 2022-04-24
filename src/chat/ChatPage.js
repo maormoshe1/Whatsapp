@@ -16,18 +16,17 @@ function ChatPage({ uname }) {
 
     const [messages, setMessages] = useState(() => { return [] })
 
-    const [addContact, setAddContact] = useState(false)
-
     const [curNameContact, setCurNameContact] = useState('')
 
     const [curImgContact, setCurImgContact] = useState('')
+
+    const [refreshContactList, setRefreshContactList] = useState(() => { return [''] })
 
     const show_msg = function (messages, name, img) {
         setCurImgContact(img)
         setCurNameContact(name)
         setMessages(messages)
     }
-
 
     return (
         <div className="container">
@@ -42,7 +41,7 @@ function ChatPage({ uname }) {
                             </div>
                             <div className="col-md-8">
                                 <div className="card-body">
-                                    <i onClick={() => { setAddContact(true) }} id="add_contact" type="button" className="bi bi-person-plus-fill" data-bs-toggle="modal" data-bs-target="#exampleModal"/>
+                                    <i id="add_contact" type="button" className="bi bi-person-plus-fill" data-bs-toggle="modal" data-bs-target="#exampleModal"/>
 
                                     <h3 className="contact-name">{user.dname}</h3>
                                 </div>
@@ -50,13 +49,14 @@ function ChatPage({ uname }) {
                         </div>
                     </div>
                     <div>
-                        <ContactList id="Contacts" contacts={contactList} show_msg={show_msg} />
+                        <ContactList id="Contacts" contacts={contactList} show_msg={show_msg} refresh={refreshContactList} />
                     </div>
                 </div>
                 <div className="col-8">
-                    <AddContact modal={addContact} show_modal={setAddContact} user={user} setContactList={setContactList} />
+                    <AddContact user={user} setContactList={setContactList} refreshNewContact={setRefreshContactList} />
 
-                    <ChatItem messages={messages} curImgContact={curImgContact} curNameContact={curNameContact}  user={user} />
+                    <ChatItem messages={messages} curImgContact={curImgContact}
+                     curNameContact={curNameContact}  user={user} refreshLastMsg={setRefreshContactList} />
                 </div>
             </div>
         </div>

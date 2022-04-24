@@ -16,10 +16,10 @@ function Message({ msg, userName }) {
     }
     else {
       return (
-        <div>
-          <p id="text-msg" >
-            <text className='reciveMsg'> {msg.content} </text>
-            <small>{msg.time}</small>
+        <div className="grid">
+          <p id="reciveMsg-text" >
+            <text className='msg-text'> {msg.content} </text>
+            <small className="text-muted"> {msg.time}</small>
           </p>
         </div>
       );
@@ -41,7 +41,7 @@ function Message({ msg, userName }) {
     else {
       return (
         <div className="grid">
-          <p id="img-msg">
+          <p id="reciveMsg-media">
             <img src={msg.content} className='reciveMsg' id='media' />
             <small id="img-msg-time" className="text-muted">{msg.time}</small>
           </p>
@@ -64,7 +64,7 @@ function Message({ msg, userName }) {
     else {
       return (
         <div className="grid">
-          <p id="img-msg" className="g-col-6 ">
+          <p id="reciveMsg-media" className="g-col-6 ">
             <video src={msg.content} className='reciveMsg' id='media' controls />
             <small id="img-msg-time" className="text-muted">{msg.time}</small>
           </p>
@@ -88,7 +88,7 @@ function Message({ msg, userName }) {
     else {
       return (
         <div className="grid">
-          <p id="img-msg" className="g-col-6 ">
+          <p id="reciveMsg-media" className="g-col-6 ">
             <audio src={msg.content} className='reciveMsg' controls />
             <small id="img-msg-time" className="text-muted">{msg.time}</small>
           </p>

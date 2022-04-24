@@ -6,7 +6,8 @@ import AddMedia from '../messages/AddMedia';
 import RecordAudio from '../messages/RecordAudio';
 import CurrentSession from './CurrentSession';
 
-function ChatItem({ messages, curImgContact, curNameContact, user }) {
+function ChatItem({ messages, curImgContact, curNameContact, user , refreshLastMsg }) {
+
     let today = new Date();
     const msg = useRef(null);
 
@@ -14,6 +15,7 @@ function ChatItem({ messages, curImgContact, curNameContact, user }) {
     const [addMedia, setAddMedia] = useState(false);
     const [type, setType] = useState('');
     const [recordAudio, setRecordAudio] = useState(false)
+    
 
     const getTime = function () {
         let h = today.getHours();
@@ -31,8 +33,8 @@ function ChatItem({ messages, curImgContact, curNameContact, user }) {
         if ((type == "text" && content != "") || type == "img" || type == "video" || type == "audio") {
             setMessageList(messages.push({ type: type, content: content, time: getTime(), from: user.uname }));
             console.log(messages[messages.length - 1])
+            refreshLastMsg(messages[messages.length - 1]);
             document.getElementById("toSendField").value = "";
-
             document.getElementById("messagesDiv").scrollTop = document.getElementById("messagesDiv").scrollHeight;
         }
     }

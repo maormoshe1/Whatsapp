@@ -17,13 +17,22 @@
     width: 200px;
 }
 
-.reciveMsg{ 
+#reciveMsg-text{ 
     background-color: white;
     border-radius: 50px;
     width: fit-content;
-    float:right;
-    position: absolute;
-    right: 13%;
+    position: relative;
+    right: -70%;   
+}
+
+#reciveMsg-media{ 
+    background-color: white;
+    border-radius: 30px;
+    padding: 2px;
+    width: fit-content;
+    position: relative;
+    right: -70%;
+    
 }
 
 .btnSendMedia {

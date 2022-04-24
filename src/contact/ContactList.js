@@ -2,8 +2,7 @@ import ContactItem from "./ContactItem";
 import users from "../hard_coded/users";
 import "./ContactItem.css"
 
-function ContactList({contacts,show_msg}){
-
+function ContactList({contacts,show_msg, refresh}){
     const contactList = contacts.map((contact,key)=>{
         const user = users.find((user) => {
             return user.uname == contact.user})

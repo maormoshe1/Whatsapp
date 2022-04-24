@@ -1,8 +1,7 @@
 import { useRef } from "react";
-import messages from "../hard_coded/messages";
 import users from "../hard_coded/users";
 
-function AddContact({ modal, show_modal, user, setContactList }) {
+function AddContact({user,refreshNewContact, setContactList }) {
     const new_contact = useRef(null)
     const add_contact = function () {
 
@@ -28,6 +27,7 @@ function AddContact({ modal, show_modal, user, setContactList }) {
             setContactList(user.contacts);
 			document.getElementById('alertSuccess').innerHTML = "Contact added:) Plz close the tab!";
 			document.getElementById('alertSuccess').style.visibility = "visible";
+            refreshNewContact(user.contacts[0])
             return;
         }
 
@@ -48,9 +48,6 @@ function AddContact({ modal, show_modal, user, setContactList }) {
 		document.getElementById('alert').style.visibility = "collapse";
 	}
 
-    if (!modal) {
-        return null;
-    }
     return (
         <>
             <div className="modal fade" id="exampleModal" tabIndex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -58,7 +55,7 @@ function AddContact({ modal, show_modal, user, setContactList }) {
                     <div className="modal-content">
                         <div className="modal-header">
                             <h5 className="modal-title" id="exampleModalLabel">Add new Contact</h5>
-                            <button onClick={() => { show_modal(false) }} type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
 
                         </div>
                         <div className="modal-body">

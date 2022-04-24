@@ -16,6 +16,7 @@
 #send{
     position: fixed;
     left: 86%;
+    font-size:x-large;
 }
 #background{
     position: absolute;
