@@ -22,7 +22,7 @@ function RecordAudio({ modal, show_modal, handleSend }) {
 
       mediaRecorder.start();
 
-      console.log(mediaRecorder.state);
+      //console.log(mediaRecorder.state);
 
     })
 

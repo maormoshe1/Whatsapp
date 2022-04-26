@@ -1,4 +1,3 @@
-import ChatItem from '../chat/ChatItem';
 import LastMessage from '../messages/LastMessage';
 import './ContactItem.css';
 

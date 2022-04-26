@@ -2,7 +2,6 @@ import './App.css';
 import ChatPage from './chat/ChatPage';
 import Login from './login/Login';
 import {BrowserRouter as Router, Route, Switch} from "react-router-dom"
-import { useState } from 'react';
 import AddContact from './contact/AddContact';
 
 

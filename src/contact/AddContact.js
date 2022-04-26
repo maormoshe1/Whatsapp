@@ -9,6 +9,7 @@ function AddContact({user,refreshNewContact, setContactList }) {
 
         document.getElementById('alertSuccess').style.visibility = "collapse";
         document.getElementById('alert').style.visibility = "collapse";
+        
 
         for (let contact of user.contacts) {
             if (contact.user == document.getElementById("new_username").value) {

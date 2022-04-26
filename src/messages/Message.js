@@ -1,4 +1,3 @@
-
 import './Message.css';
 
 function Message({ msg, userName }) {

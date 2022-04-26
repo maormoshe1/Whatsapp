@@ -127,7 +127,6 @@ function Login() {
 		}
 
 		users.push({ uname: usernameR.current.value, dname: displayName.current.value, password: passwordR.current.value, img: profile, contacts: [] })
-		console.log(profile)
 		localStorage.setItem('userName',usernameR.current.value)
 		history.push("/chat_page")
 
@@ -158,7 +157,7 @@ function Login() {
 				<div id='ChangeToRegisterCan' className='ChangeToRegisterCanvas'>
 					<h1 className='textSwitch'>New Here?</h1>
 					<br />
-					<h7 className='textSwitch3'>Enter your personal details and let's get started!</h7>
+					<em className='textSwitch3'>Enter your personal details and let's get started!</em>
 					<br />
 					<button onClick={() => { handleSwitchToRegister() }} className='loginBtn'>Sign Up</button>
 				</div>
@@ -188,7 +187,7 @@ function Login() {
 				<div id='ChangeToLoginCan' className='ChangeToLoginCanvas'>
 					<h1 className='textSwitch'>Welcome Back!</h1>
 					<br />
-					<h7 className='textSwitch2'>already have an acount?</h7>
+					<em className='textSwitch2'>already have an acount?</em>
 					<br />
 					<button id='hey' onClick={() => { handleSwitchToLogin() }} className='loginBtn'>Sign In</button>
 				</div>

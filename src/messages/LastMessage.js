@@ -16,7 +16,7 @@ function LastMessage({ messages }) {
     if(lastMessage.type == "audio"){
         return(
         <>
-            <p><i class="bi bi-mic"></i> voice message</p>
+            <p><i className="bi bi-mic"></i> voice message</p>
             <p className="send-time"><small className="text-muted">{lastMessageTime}</small></p>
         </>
         )
@@ -24,7 +24,7 @@ function LastMessage({ messages }) {
     if(lastMessage.type == "img"){
         return(
         <>
-            <p><i class="bi bi-card-image"></i> image </p>
+            <p><i className="bi bi-card-image"></i> image </p>
             <p className="send-time"><small className="text-muted">{lastMessageTime}</small></p>
         </>
         )
@@ -32,7 +32,7 @@ function LastMessage({ messages }) {
     if(lastMessage.type == "video"){
         return(
         <>
-            <p><i class="bi bi-camera-reels"></i> video </p>
+            <p><i className="bi bi-camera-reels"></i> video </p>
             <p className="send-time"><small className="text-muted">{lastMessageTime}</small></p>
         </>
         )

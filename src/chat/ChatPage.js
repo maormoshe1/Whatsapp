@@ -2,17 +2,16 @@
 import users from '../hard_coded/users'
 import ChatItem from '../chat/ChatItem'
 import ContactList from '../contact/ContactList';
-import { useRef, useState } from 'react';
+import { useState } from 'react';
 import './ChatPage.css';
 import AddContact from '../contact/AddContact';
 
 
-function ChatPage({ uname }) {
+function ChatPage() {
     const user = users.find((user) => {
         return user.uname == localStorage.getItem("userName")
     })
     
-    console.log(localStorage.getItem('userName'))
     const [contactList, setContactList] = useState(() => { return user.contacts })
 
     const [messages, setMessages] = useState(() => { return [] })

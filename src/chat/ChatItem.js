@@ -1,6 +1,5 @@
 import './ChatItem.css';
 import MessageList from '../messages/MessageList'
-import messages from '../hard_coded/messages';
 import { useRef, useState } from 'react';
 import AddMedia from '../messages/AddMedia';
 import RecordAudio from '../messages/RecordAudio';
@@ -32,7 +31,6 @@ function ChatItem({ messages, curImgContact, curNameContact, user , refreshLastM
     const handleSend = (type, content) => {
         if ((type == "text" && content != "") || type == "img" || type == "video" || type == "audio") {
             setMessageList(messages.push({ type: type, content: content, time: getTime(), from: user.uname }));
-            console.log(messages[messages.length - 1])
             refreshLastMsg(messages[messages.length - 1]);
             document.getElementById("toSendField").value = "";
             document.getElementById("messagesDiv").scrollTop = document.getElementById("messagesDiv").scrollHeight;
@@ -45,7 +43,6 @@ function ChatItem({ messages, curImgContact, curNameContact, user , refreshLastM
     }
 
     if (curNameContact=="") {
-        console.log(curNameContact)
         return (
             <div>
                 <img id='background2' src="Images/background.jpg" ></img>
@@ -70,14 +67,14 @@ function ChatItem({ messages, curImgContact, curNameContact, user , refreshLastM
 
                 <div className='msg-controller'>
                     <div id="attatchment" className="dropdown">
-                        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown"
+                        <button className="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown"
                             aria-expanded="false">
-                            <i class="bi bi-paperclip"></i>
+                            <i className="bi bi-paperclip"></i>
                         </button>
-                        <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-                            <li><a onClick={() => { add_media("img") }} class="dropdown-item" href="#"><i class="bi bi-card-image"></i></a></li>
-                            <li><a onClick={() => { add_media("video") }} class="dropdown-item" href="#"><i class="bi bi-camera-reels"></i></a></li>
-                            <li><a onClick={() => { setRecordAudio(true) }} class="dropdown-item" href="#"><i class="bi bi-mic"></i></a></li>
+                        <ul className="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                            <li><a onClick={() => { add_media("img") }} className="dropdown-item" href="#"><i className="bi bi-card-image"></i></a></li>
+                            <li><a onClick={() => { add_media("video") }} className="dropdown-item" href="#"><i className="bi bi-camera-reels"></i></a></li>
+                            <li><a onClick={() => { setRecordAudio(true) }} className="dropdown-item" href="#"><i className="bi bi-mic"></i></a></li>
                         </ul>
                     </div>
                     <i id="send" className="bi-send" onClick={() => { handleSend("text", msg.current.value) }}/>
