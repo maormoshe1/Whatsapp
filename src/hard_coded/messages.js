@@ -8,10 +8,15 @@ const shir_daniel_msg = [{type: 'audio', content:'Media/audio_rec.ogg', time:'16
 const shir_nikol_msg = [{type: 'text', content:'hi, shir', time:'16:03', from: 'Nikol'},
 {type: 'text', content:'I bought new bracelet', time:'16:04', from: 'Nikol'},
 {type: 'img', content:'Images/bracelet.jpeg', time:'16:04', from: 'Nikol'}];
+
 const shir_rivka_msg = [{type: 'text', content:'hi, rivka', time:'16:03', from: 'Shir'}];
+
 const shir_miriam_msg = [{type: 'text', content:'hi, miriam', time:'16:03', from: 'Shir'}];
 
+const nikol_maor_msg = [{type: 'text', content:'hi, Maor', time:'16:03', from: 'Nikol'},
+{type: 'text', content:'hi, Nikol', time:'16:07', from: 'Maor'}]
 
-const messages=[shir_maor_msg,shir_daniel_msg,shir_nikol_msg,shir_rivka_msg,shir_miriam_msg]
+
+const messages=[shir_maor_msg, shir_daniel_msg, shir_nikol_msg, shir_rivka_msg, shir_miriam_msg, nikol_maor_msg]
 
 export default messages;
