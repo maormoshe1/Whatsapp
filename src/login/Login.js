@@ -35,6 +35,7 @@ function Login() {
 			}
 			else {
 				document.getElementById("registerCan").style.visibility = "collapse";
+				document.querySelector("#registerCan > button.btn-grad").style.display = "none";
 				document.getElementById("LoginCan").style.visibility = "visible";
 				clearInterval(intervalID);
 			}
@@ -58,6 +59,7 @@ function Login() {
 			}
 			else {
 				document.getElementById("LoginCan").style.visibility = "collapse";
+				document.querySelector("#registerCan > button.btn-grad").style.display = "inline-block";
 				document.getElementById("registerCan").style.visibility = "visible";
 				clearInterval(intervalID);
 			}
