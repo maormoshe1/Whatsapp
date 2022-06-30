@@ -1,5 +1,12 @@
+How to run the code:
+1. Install node.js
+2. open cmd and execute: git clone https://github.com/maormoshe1/whatssap_.git
+3. Go into the cloned folder with cd whatssap_
+4. Run npm install
+5. Run npm start
 
-We used : "react-router" 
+Download requierd:
+react-router
 
 There are 7 username hardcoded
 user name: Shir,     password: Ss1 
